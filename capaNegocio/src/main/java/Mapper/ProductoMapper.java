@@ -19,7 +19,8 @@ public class ProductoMapper {
                 dto.getNombre(), 
                 dto.getPrecio(), 
                 dto.getTipoProducto(), 
-                dto.getEstadoProducto()
+                dto.getEstadoProducto(),
+                dto.getIngredientes()
         );
     }
     
@@ -29,7 +30,8 @@ public class ProductoMapper {
                 dto.getNombre(), 
                 dto.getPrecio(), 
                 dto.getTipoProducto(), 
-                dto.getEstadoProducto()
+                dto.getEstadoProducto(),
+                ProductoIngredienteMapper.toEntityListFromViejoDTO(dto.getIngredientes())
         );
     }
     
@@ -40,7 +42,7 @@ public class ProductoMapper {
                 producto.getPrecio(), 
                 producto.getTipoProducto(), 
                 producto.getEstadoProducto(), 
-                producto.getIngredientes()
+                ProductoIngredienteMapper.toViejoDTOList(producto.getIngredientes())
         );
     }
     

@@ -28,12 +28,12 @@ public class ProductoViejoDTO {
 
     private EstadoProducto estadoProducto;
 
-    private List<ProductoIngredienteNuevoDTO> ingredientes = new ArrayList<>();
+    private List<ProductoIngredienteViejoDTO> ingredientes = new ArrayList<>();
 
     public ProductoViejoDTO() {
     }
 
-    public ProductoViejoDTO(Long id, String nombre, Double precio, TipoProducto tipoProducto, EstadoProducto estadoProducto, List<ProductoIngredienteNuevoDTO> ingredientes) {
+    public ProductoViejoDTO(Long id, String nombre, Double precio, TipoProducto tipoProducto, EstadoProducto estadoProducto, List<ProductoIngredienteViejoDTO> ingredientes) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
@@ -82,11 +82,11 @@ public class ProductoViejoDTO {
         this.estadoProducto = estadoProducto;
     }
 
-    public List<ProductoIngredienteNuevoDTO> getIngredientes() {
+    public List<ProductoIngredienteViejoDTO> getIngredientes() {
         return ingredientes;
     }
 
-    public void setIngredientes(List<ProductoIngredienteNuevoDTO> ingredientes) {
+    public void setIngredientes(List<ProductoIngredienteViejoDTO> ingredientes) {
         this.ingredientes = ingredientes;
     }
 

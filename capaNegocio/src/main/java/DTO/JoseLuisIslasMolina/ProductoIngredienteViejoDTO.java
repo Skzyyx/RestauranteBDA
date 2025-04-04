@@ -5,26 +5,44 @@
 package DTO.JoseLuisIslasMolina;
 
 import DTO.FreddyAliCastroRoman.IngredienteNuevoDTO;
+import DTO.FreddyAliCastroRoman.IngredienteViejoDTO;
 
 /**
  *
  * @author skyro
  */
-public class ProductoIngredienteNuevoDTO {
-
+public class ProductoIngredienteViejoDTO {
+    
+    private Long id;
+    
     private Integer cantidad;
 
     private ProductoNuevoDTO producto;
 
-    private IngredienteNuevoDTO ingrediente;
+    private IngredienteViejoDTO ingrediente;
 
-    public ProductoIngredienteNuevoDTO() {
+    public ProductoIngredienteViejoDTO() {
     }
 
-    public ProductoIngredienteNuevoDTO(Integer cantidad, ProductoNuevoDTO producto, IngredienteNuevoDTO ingrediente) {
+    public ProductoIngredienteViejoDTO(Long id, Integer cantidad, ProductoNuevoDTO producto, IngredienteViejoDTO ingrediente) {
+        this.id = id;
         this.cantidad = cantidad;
         this.producto = producto;
         this.ingrediente = ingrediente;
+    }
+
+    public ProductoIngredienteViejoDTO(Integer cantidad, ProductoNuevoDTO producto, IngredienteViejoDTO ingrediente) {
+        this.cantidad = cantidad;
+        this.producto = producto;
+        this.ingrediente = ingrediente;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getCantidad() {
@@ -43,11 +61,11 @@ public class ProductoIngredienteNuevoDTO {
         this.producto = producto;
     }
 
-    public IngredienteNuevoDTO getIngrediente() {
+    public IngredienteViejoDTO getIngrediente() {
         return ingrediente;
     }
 
-    public void setIngrediente(IngredienteNuevoDTO ingrediente) {
+    public void setIngrediente(IngredienteViejoDTO ingrediente) {
         this.ingrediente = ingrediente;
     }
     
