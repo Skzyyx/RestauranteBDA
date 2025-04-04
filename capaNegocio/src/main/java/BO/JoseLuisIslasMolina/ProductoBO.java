@@ -26,7 +26,7 @@ public class ProductoBO {
         this.productoDAO = ProductoDAO.getInstance();
     }
     
-    public ProductoBO getInstance() {
+    public static ProductoBO getInstance() {
         if (instance == null) {
             instance = new ProductoBO();
         }

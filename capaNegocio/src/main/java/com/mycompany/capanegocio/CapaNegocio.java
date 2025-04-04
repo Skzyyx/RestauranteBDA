@@ -4,6 +4,15 @@
 
 package com.mycompany.capanegocio;
 
+import BO.JoseLuisIslasMolina.ProductoBO;
+import DTO.JoseLuisIslasMolina.ProductoNuevoDTO;
+import Enums.EstadoProducto;
+import Enums.TipoProducto;
+import Exception.ModuloProductoNegocioException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author skyro
@@ -11,6 +20,14 @@ package com.mycompany.capanegocio;
 public class CapaNegocio {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        try {
+            ProductoBO bo = ProductoBO.getInstance();
+            
+            ProductoNuevoDTO producto = new ProductoNuevoDTO("Sushi", 180.50, TipoProducto.PLATILLO, EstadoProducto.DISPONIBLE, new ArrayList<>());
+            bo.agregarProducto(producto);
+        } catch (ModuloProductoNegocioException ex) {
+            Logger.getLogger(CapaNegocio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

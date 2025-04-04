@@ -17,5 +17,10 @@
             <artifactId>LGoodDatePicker</artifactId>
             <version>11.2.1</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>capaNegocio</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

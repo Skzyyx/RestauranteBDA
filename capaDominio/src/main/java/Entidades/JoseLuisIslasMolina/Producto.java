@@ -36,37 +36,40 @@ public class Producto implements Serializable {
 
     @Column(name = "nombre", nullable = false, unique = true)
     private String nombre;
-    
+
     @Column(name = "precio", nullable = false)
     private Double precio;
-    
+
     @Column(name = "tipoProducto", nullable = false)
     @Enumerated(value = EnumType.STRING)
     private TipoProducto tipoProducto;
-    
+
     @Column(name = "estadoProducto", nullable = false)
     @Enumerated(value = EnumType.STRING)
     private EstadoProducto estadoProducto;
 
     @OneToMany(mappedBy = "producto", cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<ProductoIngrediente> ingredientes = new ArrayList<>();
-    
+
     public Producto() {
     }
 
-    public Producto(Long id, String nombre, Double precio, TipoProducto tipoProducto, EstadoProducto estadoProducto) {
+    public Producto(Long id, String nombre, Double precio, TipoProducto tipoProducto, EstadoProducto estadoProducto, List<ProductoIngrediente> ingredientes) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.tipoProducto = tipoProducto;
         this.estadoProducto = estadoProducto;
+        this.ingredientes = ingredientes;
     }
 
-    public Producto(String nombre, Double precio, TipoProducto tipoProducto, EstadoProducto estadoProducto) {
+    public Producto(String nombre, Double precio, TipoProducto tipoProducto, EstadoProducto estadoProducto, List<ProductoIngrediente> ingredientes) {
         this.nombre = nombre;
         this.precio = precio;
         this.tipoProducto = tipoProducto;
         this.estadoProducto = estadoProducto;
+        this.ingredientes = ingredientes;
+
     }
 
     public Long getId() {
@@ -121,5 +124,5 @@ public class Producto implements Serializable {
     public String toString() {
         return "Producto{" + "id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", tipoProducto=" + tipoProducto + ", estadoProducto=" + estadoProducto + ", ingredientes=" + ingredientes + '}';
     }
-    
+
 }
