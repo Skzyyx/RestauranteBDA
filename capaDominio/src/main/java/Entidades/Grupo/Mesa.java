@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Entidades;
+package Entidades.Grupo;
 
 import Enums.EstadoMesa;
 import java.io.Serializable;
@@ -25,10 +25,10 @@ public class Mesa implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "numero", nullable = false)
+    @Column(name = "numero", nullable = false, unique = true)
     private Integer numeroMesa;
     
     @Column(name = "estadoMesa", nullable = false)

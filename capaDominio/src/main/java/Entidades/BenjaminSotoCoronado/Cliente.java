@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Entidades;
+package Entidades.BenjaminSotoCoronado;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -32,7 +31,7 @@ public abstract class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nombre", nullable = false)

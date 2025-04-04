@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Entidades;
+package Entidades.BenjaminSotoCoronado;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
 /**
  *
@@ -21,12 +22,15 @@ import javax.persistence.Entity;
 @DiscriminatorValue("Frecuente")
 public class ClienteFrecuente extends Cliente implements Serializable {
 
+    @Transient
     @Column(name = "visitasAcumuladas", nullable = true)
     private Integer visitasAcumuladas;
     
+    @Transient
     @Column(name = "gastoTotalAcumulado", nullable = true)
     private Double gastoTotalAcumulado;
     
+    @Transient
     @Column(name = "puntosAcumulados", nullable = true)
     private Double puntosAcumulados;
 

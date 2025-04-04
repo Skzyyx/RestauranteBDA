@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Entidades;
+package Entidades.FreddyAliCastroRoman;
 
 import Enums.UnidadMedida;
 import java.io.Serializable;
@@ -33,7 +33,7 @@ public class Ingrediente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nombre", nullable = false)
@@ -45,9 +45,6 @@ public class Ingrediente implements Serializable {
     
     @Column(name = "stock", nullable = false)
     private Integer stock;
-    
-    @OneToMany(mappedBy = "ingrediente")
-    private List<ProductoIngrediente> productos = new ArrayList<>();
 
     public Ingrediente() {
     }
@@ -97,17 +94,9 @@ public class Ingrediente implements Serializable {
         this.stock = stock;
     }
 
-    public List<ProductoIngrediente> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<ProductoIngrediente> productos) {
-        this.productos = productos;
-    }
-
     @Override
     public String toString() {
-        return "Ingrediente{" + "id=" + id + ", nombre=" + nombre + ", unidadMedida=" + unidadMedida + ", stock=" + stock + ", productos=" + productos + '}';
+        return "Ingrediente{" + "id=" + id + ", nombre=" + nombre + ", unidadMedida=" + unidadMedida + ", stock=" + stock + '}';
     }
     
 }

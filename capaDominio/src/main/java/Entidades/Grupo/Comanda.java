@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Entidades;
+package Entidades.Grupo;
 
+import Entidades.BenjaminSotoCoronado.Cliente;
 import Enums.EstadoComanda;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -12,13 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 
 /**
  *
@@ -31,7 +31,7 @@ public class Comanda implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String folio;
@@ -49,9 +49,6 @@ public class Comanda implements Serializable {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    
-    @OneToMany(mappedBy = "comanda", cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<DetalleComanda> detalles = new ArrayList<>();
 
     public Comanda() {
     }
@@ -131,17 +128,9 @@ public class Comanda implements Serializable {
         this.cliente = cliente;
     }
 
-    public List<DetalleComanda> getDetalles() {
-        return detalles;
-    }
-
-    public void setDetalles(List<DetalleComanda> detalles) {
-        this.detalles = detalles;
-    }
-
     @Override
     public String toString() {
-        return "Comanda{" + "id=" + id + ", folio=" + folio + ", fechaHora=" + fechaHora + ", totalVenta=" + totalVenta + ", estado=" + estado + ", mesa=" + mesa + ", cliente=" + cliente + ", detalles=" + detalles + '}';
+        return "Comanda{" + "id=" + id + ", folio=" + folio + ", fechaHora=" + fechaHora + ", totalVenta=" + totalVenta + ", estado=" + estado + ", mesa=" + mesa + ", cliente=" + cliente + '}';
     }
     
 }
