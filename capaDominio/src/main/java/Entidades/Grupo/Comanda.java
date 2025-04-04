@@ -8,11 +8,15 @@ import Entidades.BenjaminSotoCoronado.Cliente;
 import Enums.EstadoComanda;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,12 +38,17 @@ public class Comanda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "folio", unique = true, nullable = false)
     private String folio;
     
-    private Timestamp fechaHora;
+    @Column(name = "fechaHora", nullable = false)
+    private LocalDate fechaHora;
     
+    @Column(name = "totalVenta", nullable = false)
     private Double totalVenta;
     
+    @Column(name = "estado", nullable = false)
+    @Enumerated(EnumType.STRING)
     private EstadoComanda estado;
     
     @ManyToOne
@@ -53,7 +62,7 @@ public class Comanda implements Serializable {
     public Comanda() {
     }
 
-    public Comanda(Long id, String folio, Timestamp fechaHora, Double totalVenta, EstadoComanda estado, Mesa mesa, Cliente cliente) {
+    public Comanda(Long id, String folio, LocalDate fechaHora, Double totalVenta, EstadoComanda estado, Mesa mesa, Cliente cliente) {
         this.id = id;
         this.folio = folio;
         this.fechaHora = fechaHora;
@@ -63,7 +72,7 @@ public class Comanda implements Serializable {
         this.cliente = cliente;
     }
 
-    public Comanda(String folio, Timestamp fechaHora, Double totalVenta, EstadoComanda estado, Mesa mesa, Cliente cliente) {
+    public Comanda(String folio, LocalDate fechaHora, Double totalVenta, EstadoComanda estado, Mesa mesa, Cliente cliente) {
         this.folio = folio;
         this.fechaHora = fechaHora;
         this.totalVenta = totalVenta;
@@ -88,11 +97,11 @@ public class Comanda implements Serializable {
         this.folio = folio;
     }
 
-    public Timestamp getFechaHora() {
+    public LocalDate getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(Timestamp fechaHora) {
+    public void setFechaHora(LocalDate fechaHora) {
         this.fechaHora = fechaHora;
     }
 

@@ -4,7 +4,7 @@
 package com.mycompany.capapersistencia;
 
 import Conexion.Conexion;
-import DAO.ProductoDAO;
+import DAO.JoseLuisIslasMolina.ProductoDAO;
 import Entidades.FreddyAliCastroRoman.Ingrediente;
 import Enums.UnidadMedida;
 import javax.persistence.EntityManager;

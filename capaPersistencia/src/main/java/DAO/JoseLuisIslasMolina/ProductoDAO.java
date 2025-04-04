@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DAO;
+package DAO.JoseLuisIslasMolina;
 
 import Conexion.Conexion;
 import Entidades.JoseLuisIslasMolina.Producto;
 import Enums.EstadoProducto;
-import Exception.ModuloProductoException;
+import Exception.ModuloProductoPersistenciaException;
 import Interface.IProductoDAO;
 import javax.persistence.EntityManager;
 
@@ -32,9 +32,10 @@ public class ProductoDAO implements IProductoDAO {
         return instance;
     }
     
-    public Producto agregarProducto(Producto producto) throws ModuloProductoException {
+    @Override
+    public Producto agregarProducto(Producto producto) throws ModuloProductoPersistenciaException {
         
-        if (producto == null) throw new ModuloProductoException("El producto no puede ser nulo");
+        if (producto == null) throw new ModuloProductoPersistenciaException("El producto no puede ser nulo");
         
         EntityManager em = Conexion.crearConexion();
         try {
@@ -44,15 +45,16 @@ public class ProductoDAO implements IProductoDAO {
             return producto;
         } catch (Exception e) {
             em.getTransaction().rollback();
-            throw new ModuloProductoException("Error al guardar el producto: " + e.getMessage());
+            throw new ModuloProductoPersistenciaException("Error al guardar el producto: " + e.getMessage());
         } finally {
             em.close();
         }
     }
     
-    public boolean deshabilitarProducto(Long idProducto) throws ModuloProductoException {
+    @Override
+    public boolean deshabilitarProducto(Long idProducto) throws ModuloProductoPersistenciaException {
         
-        if (idProducto == null) throw new ModuloProductoException("El id del producto no puede ser nulo.");
+        if (idProducto == null) throw new ModuloProductoPersistenciaException("El id del producto no puede ser nulo.");
         
         EntityManager em = Conexion.crearConexion();
         
@@ -60,8 +62,8 @@ public class ProductoDAO implements IProductoDAO {
             
             Producto producto = em.find(Producto.class, idProducto);
             
-            if (producto == null) throw new ModuloProductoException("El producto no fue encontrado.");
-            if (producto.getEstadoProducto() == EstadoProducto.NO_DISPONIBLE) throw new ModuloProductoException("El producto ya se encuentra deshabilitado.");
+            if (producto == null) throw new ModuloProductoPersistenciaException("El producto no fue encontrado.");
+            if (producto.getEstadoProducto() == EstadoProducto.NO_DISPONIBLE) throw new ModuloProductoPersistenciaException("El producto ya se encuentra deshabilitado.");
             
             em.getTransaction().begin();
             producto.setEstadoProducto(EstadoProducto.NO_DISPONIBLE);
@@ -70,15 +72,16 @@ public class ProductoDAO implements IProductoDAO {
             return true;
         } catch (Exception e) {
             em.getTransaction().rollback();
-            throw new ModuloProductoException("Ocurrió un error al deshabilitar el producto: " + e.getMessage());
+            throw new ModuloProductoPersistenciaException("Ocurrió un error al deshabilitar el producto: " + e.getMessage());
         } finally {
             em.close();
         }
     }
     
-    public boolean habilitarProducto(Long idProducto) throws ModuloProductoException {
+    @Override
+    public boolean habilitarProducto(Long idProducto) throws ModuloProductoPersistenciaException {
         
-        if (idProducto == null) throw new ModuloProductoException("El id del producto no puede ser nulo.");
+        if (idProducto == null) throw new ModuloProductoPersistenciaException("El id del producto no puede ser nulo.");
         
         EntityManager em = Conexion.crearConexion();
         
@@ -86,8 +89,8 @@ public class ProductoDAO implements IProductoDAO {
             
             Producto producto = em.find(Producto.class, idProducto);
             
-            if (producto == null) throw new ModuloProductoException("El producto no fue encontrado.");
-            if (producto.getEstadoProducto() == EstadoProducto.DISPONIBLE) throw new ModuloProductoException("El producto ya se encuentra habilitado.");
+            if (producto == null) throw new ModuloProductoPersistenciaException("El producto no fue encontrado.");
+            if (producto.getEstadoProducto() == EstadoProducto.DISPONIBLE) throw new ModuloProductoPersistenciaException("El producto ya se encuentra habilitado.");
             
             em.getTransaction().begin();
             producto.setEstadoProducto(EstadoProducto.DISPONIBLE);
@@ -96,16 +99,17 @@ public class ProductoDAO implements IProductoDAO {
             return true;
         } catch (Exception e) {
             em.getTransaction().rollback();
-            throw new ModuloProductoException("Ocurrió un error al habilitar el producto: " + e.getMessage());
+            throw new ModuloProductoPersistenciaException("Ocurrió un error al habilitar el producto: " + e.getMessage());
         } finally {
             em.close();
         }
     }
     
-    public Producto editarProducto(Long idProducto, Producto productoNuevo) throws ModuloProductoException {
+    @Override
+    public Producto editarProducto(Long idProducto, Producto productoNuevo) throws ModuloProductoPersistenciaException {
         
-        if (idProducto == null) throw new ModuloProductoException("El id no puede ser nulo");
-        if (productoNuevo == null) throw new ModuloProductoException("El producto no puede ser nulo");
+        if (idProducto == null) throw new ModuloProductoPersistenciaException("El id no puede ser nulo");
+        if (productoNuevo == null) throw new ModuloProductoPersistenciaException("El producto no puede ser nulo");
         
         EntityManager em = Conexion.crearConexion();
         
@@ -113,7 +117,7 @@ public class ProductoDAO implements IProductoDAO {
             
             Producto producto = em.find(Producto.class, idProducto);
             
-            if (producto == null) throw new ModuloProductoException("El producto no fue encontrado.");
+            if (producto == null) throw new ModuloProductoPersistenciaException("El producto no fue encontrado.");
             
             em.getTransaction().begin();
             productoNuevo.setPrecio(productoNuevo.getPrecio());
@@ -123,7 +127,7 @@ public class ProductoDAO implements IProductoDAO {
             return producto;
         } catch (Exception e) {
             em.getTransaction().rollback();
-            throw new ModuloProductoException("Ocurrió un error al editar el producto: " + e.getMessage());
+            throw new ModuloProductoPersistenciaException("Ocurrió un error al editar el producto: " + e.getMessage());
         } finally {
             em.close();
         }

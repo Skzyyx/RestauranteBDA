@@ -1,0 +1,56 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Mapper;
+
+import DTO.JoseLuisIslasMolina.ProductoNuevoDTO;
+import DTO.JoseLuisIslasMolina.ProductoViejoDTO;
+import Entidades.JoseLuisIslasMolina.Producto;
+
+/**
+ *
+ * @author skyro
+ */
+public class ProductoMapper {
+    
+    public static Producto toEntity(ProductoNuevoDTO dto) {
+        return new Producto(
+                dto.getNombre(), 
+                dto.getPrecio(), 
+                dto.getTipoProducto(), 
+                dto.getEstadoProducto()
+        );
+    }
+    
+    public static Producto toEntity(ProductoViejoDTO dto) {
+        return new Producto(
+                dto.getId(),
+                dto.getNombre(), 
+                dto.getPrecio(), 
+                dto.getTipoProducto(), 
+                dto.getEstadoProducto()
+        );
+    }
+    
+    public static ProductoViejoDTO toViejoDTO(Producto producto) {
+        return new ProductoViejoDTO(
+                producto.getId(), 
+                producto.getNombre(), 
+                producto.getPrecio(), 
+                producto.getTipoProducto(), 
+                producto.getEstadoProducto(), 
+                producto.getIngredientes()
+        );
+    }
+    
+    public static ProductoNuevoDTO toNuevoDTO(Producto producto) {
+        return new ProductoNuevoDTO(
+                producto.getNombre(), 
+                producto.getPrecio(), 
+                producto.getTipoProducto(), 
+                producto.getEstadoProducto(), 
+                producto.getIngredientes()
+        );
+    }
+}

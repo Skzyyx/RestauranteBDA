@@ -1,3 +1,5 @@
 /capaDominio/target/
 /capaPersistencia/target/
 /capaPersistencia/nbproject/
+/capaNegocio/target/
+/capaPresentacion/target/

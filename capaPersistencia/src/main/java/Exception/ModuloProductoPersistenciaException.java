@@ -8,13 +8,13 @@ package Exception;
  *
  * @author skyro
  */
-public class ModuloProductoException extends Exception {
+public class ModuloProductoPersistenciaException extends Exception {
 
-    public ModuloProductoException(String message) {
+    public ModuloProductoPersistenciaException(String message) {
         super(message);
     }
 
-    public ModuloProductoException(String message, Throwable cause) {
+    public ModuloProductoPersistenciaException(String message, Throwable cause) {
         super(message, cause);
     }
 }
