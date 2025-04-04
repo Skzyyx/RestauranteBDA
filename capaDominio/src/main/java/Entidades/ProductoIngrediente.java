@@ -15,7 +15,9 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author skyro
+ * @author Jose Luis Islas Molina 252574
+ * @author Freddy Ali Castro Roman 252191
+ * @author Benjamin Soto Coronado 253183
  */
 @Entity
 public class ProductoIngrediente implements Serializable {
