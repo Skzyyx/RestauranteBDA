@@ -4,7 +4,7 @@
  */
 package Interface;
 
-import Entidades.FreddyAliCastroRoman.Ingrediente;
+import Entidades.ModuloIngrediente.Ingrediente;
 import Exception.ModuloIngredientePersistenciaException;
 
 /**

@@ -4,8 +4,8 @@
 
 package com.mycompany.capanegocio;
 
-import BO.JoseLuisIslasMolina.ProductoBO;
-import DTO.JoseLuisIslasMolina.ProductoNuevoDTO;
+import BO.ModuloProducto.ProductoBO;
+import DTO.ModuloProducto.ProductoNuevoDTO;
 import Enums.EstadoProducto;
 import Enums.TipoProducto;
 import Exception.ModuloProductoNegocioException;
@@ -23,7 +23,6 @@ public class CapaNegocio {
         
         try {
             ProductoBO bo = ProductoBO.getInstance();
-            
             ProductoNuevoDTO producto = new ProductoNuevoDTO("Sushi", 180.50, TipoProducto.PLATILLO, EstadoProducto.DISPONIBLE, new ArrayList<>());
             bo.agregarProducto(producto);
         } catch (ModuloProductoNegocioException ex) {

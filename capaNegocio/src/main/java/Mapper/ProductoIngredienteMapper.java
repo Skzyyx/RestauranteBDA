@@ -4,9 +4,9 @@
  */
 package Mapper;
 
-import DTO.JoseLuisIslasMolina.ProductoIngredienteNuevoDTO;
-import DTO.JoseLuisIslasMolina.ProductoIngredienteViejoDTO;
-import Entidades.JoseLuisIslasMolina.ProductoIngrediente;
+import DTO.ModuloProducto.ProductoIngredienteNuevoDTO;
+import DTO.ModuloProducto.ProductoIngredienteViejoDTO;
+import Entidades.ModuloProducto.ProductoIngrediente;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class ProductoIngredienteMapper {
         return new ProductoIngredienteNuevoDTO(
                 ingrediente.getCantidad(), 
                 ProductoMapper.toNuevoDTO(ingrediente.getProducto()),
-                IngredienteMapper.toNuevoDTO(ingrediente.getIngrediente())
+                IngredienteMapper.toViejoDTO(ingrediente.getIngrediente())
         );
     }
     

@@ -4,9 +4,9 @@
  */
 package Mapper;
 
-import DTO.JoseLuisIslasMolina.ProductoNuevoDTO;
-import DTO.JoseLuisIslasMolina.ProductoViejoDTO;
-import Entidades.JoseLuisIslasMolina.Producto;
+import DTO.ModuloProducto.ProductoNuevoDTO;
+import DTO.ModuloProducto.ProductoViejoDTO;
+import Entidades.ModuloProducto.Producto;
 
 /**
  *
@@ -20,7 +20,7 @@ public class ProductoMapper {
                 dto.getPrecio(), 
                 dto.getTipoProducto(), 
                 dto.getEstadoProducto(),
-                dto.getIngredientes()
+                ProductoIngredienteMapper.toEntityListFromNuevoDTO(dto.getIngredientes())
         );
     }
     
@@ -52,7 +52,7 @@ public class ProductoMapper {
                 producto.getPrecio(), 
                 producto.getTipoProducto(), 
                 producto.getEstadoProducto(), 
-                producto.getIngredientes()
+                ProductoIngredienteMapper.toNuevoDTOList(producto.getIngredientes())
         );
     }
 }

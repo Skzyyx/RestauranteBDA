@@ -1,7 +1,8 @@
 package Interface;
 
-import Entidades.JoseLuisIslasMolina.Producto;
+import Entidades.ModuloProducto.Producto;
 import Exception.ModuloProductoPersistenciaException;
+import java.util.List;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -21,4 +22,6 @@ public interface IProductoDAO {
     public boolean habilitarProducto(Long idProducto) throws ModuloProductoPersistenciaException;
     
     public Producto editarProducto(Long idProducto, Producto productoNuevo) throws ModuloProductoPersistenciaException;
+    
+    public List<Producto> obtenerProductos() throws ModuloProductoPersistenciaException;
 }

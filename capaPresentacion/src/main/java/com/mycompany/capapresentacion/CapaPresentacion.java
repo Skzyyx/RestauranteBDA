@@ -4,6 +4,8 @@
 
 package com.mycompany.capapresentacion;
 
+import Control.ControlGeneral;
+
 /**
  *
  * @author skyro
@@ -11,6 +13,7 @@ package com.mycompany.capapresentacion;
 public class CapaPresentacion {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ControlGeneral control = new ControlGeneral();
+        control.mostrarInicioSesion();
     }
 }

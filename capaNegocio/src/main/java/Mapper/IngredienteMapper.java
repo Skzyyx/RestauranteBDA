@@ -6,7 +6,7 @@ package Mapper;
 
 import DTO.FreddyAliCastroRoman.IngredienteNuevoDTO;
 import DTO.FreddyAliCastroRoman.IngredienteViejoDTO;
-import Entidades.FreddyAliCastroRoman.Ingrediente;
+import Entidades.ModuloIngrediente.Ingrediente;
 
 /**
  *

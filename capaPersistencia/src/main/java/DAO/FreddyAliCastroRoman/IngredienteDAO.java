@@ -5,7 +5,7 @@
 package DAO.FreddyAliCastroRoman;
 
 import Conexion.Conexion;
-import Entidades.FreddyAliCastroRoman.Ingrediente;
+import Entidades.ModuloIngrediente.Ingrediente;
 import Exception.ModuloIngredientePersistenciaException;
 import Interface.IIngredienteDAO;
 import javax.persistence.EntityManager;
